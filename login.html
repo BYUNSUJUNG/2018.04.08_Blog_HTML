@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8">
+
+<title>Insert title here</title>
+
+<style></style>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+<script type="text/javascript"></script>
+
+<script>
+
+    $(document).ready(function(){
+   
+   
+        $("input").focus(function(){
+                $(this).css("background","skyblue"); 
+            });
+        
+            $("input").blur(function(){
+                $(this).css("background","white"); 
+            });
+
+
+        $("#login").click(function() {
+
+           $.ajax({
+
+               url:'data2.json',
+               type:'get',
+               dataType:'json',
+               async:true,
+   
+               error:function() {
+   
+                   console.log("데이터불러오기 실패");
+               },
+               success:function(data){ 
+                   console.log(data);
+                   var did = data["id"];
+                   var dpw = data["pw"];
+                   var iid = $("#id").val();
+                   var ipw = $("#pw").val();
+                   if(did==iid&&dpw==ipw) {
+                       $('body').after("로그인 성공");
+                   } else if(did!=iid&&dpw==ipw) {
+                       
+                       $('body').after("아이디가 틀립니다");
+                   } else if(did==iid&&dpw!=ipw) {
+                       
+                       $('body').after("비밀번호가 틀립니다");
+                   } else {
+                       $('body').after("아이디와 비밀번호가 틀립니다");
+                   }
+   
+                   $('body').after(did+dpw+iid+ipw);
+                   $('body').after("<div>데이터 전송 완료</div>");
+                   console.log("데이터불러오기 성공");
+               
+               }
+           });
+       });
+   });
+   
+</script>
+
+<style>
+
+    
+    input[type=text], input[type=password] {
+        width: 25%;
+
+        padding: 10px 10px;
+        border: 2px solid skyblue;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    
+    input[type=button] {
+        font-size: 15px;
+        font-weight: bold;
+        width:100px;
+        height:40px;
+        border: 2px solid skyblue;
+    }
+    
+
+    form {
+        width:600px;
+        border: 1px solid deepskyblue;
+        border-radius: 10px;
+        background-color: deepskyblue;
+        padding: 5px;
+    }
+    
+    
+    fieldset {
+        background-color: white;
+        border-radius: 10px;
+    }
+
+    legend {
+        font-size: 30px;
+        font-weight: 900;
+    }
+
+    label {
+        margin-right:12px;
+    }
+
+
+    </style>
+</head>
+
+<body>
+
+
+    <form>
+        <fieldset>
+            <legend>로그인</legend>
+            <label>ID
+                <input type="text" id="id" name="id" placeholder="아이디 입력" title="아이디 입력">
+            </label>
+            <label>PASSWORD
+                <input type="password" id="pw" name="pw" placeholder="비밀번호 입력" title="비밀번호 입력">
+            </label>
+            <input type="button" value="LOGIN" id="login">
+        </fieldset>
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8"/>
+<title></title>
+<script  src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<style>
+    * { margin:20px;}
+    h2 { color:red;}
+
+    table {
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+
+    }
+    thead th {
+        padding: 10px;
+        font-weight: bold;
+        vertical-align: top;
+        color: #369;
+        border-bottom: 3px solid #036;
+    }
+    tbody th {
+        width: 150px;
+        padding: 10px;
+        font-weight: bold;
+        vertical-align: top;
+        border-bottom: 1px solid #ccc;
+        background: #f3f6f7;
+    }
+    td {
+        width: 350px;
+        padding: 10px;
+        vertical-align: top;
+        border-bottom: 1px solid #ccc;
+    }
+
+
+    .pattern {
+        background-color:lightblue;
+    }
+
+
+</style>
+<script>
+        $.get('data.json', function(data) {
+            console.log(data);
+            var goal = data.goal;
+            var table = $('#goal_data');
+            for(var i in goal) {
+                var g = goal[i];
+                var cnt = 0;
+                for(var prop in g) {
+                    var text = g[prop];
+                    var tr = table.find('tr').eq(parseInt(i)+1);
+                    var td = tr.find('> td').eq(cnt);
+                    td.text(text);
+                    cnt++;
+                }
+            }
+        }, 'json');
+</script>
+</head>
+<body>
+    <div id="wrapper">
+        <h3>test</h3>
+        <hr>
+        <table id="goal_data" border="1" cellpadding="10" cellspacing="0">
+            
+            
+            <thead>
+                <tr>
+                    <th>NAME</th><th>KIND</th><th>GRADE</th><th>TIME</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr><td></td><td></td><td></td><td></td></tr>
+                <tr class="pattern"><td></td><td></td><td></td><td></td></tr>
+                <tr><td></td><td></td><td></td><td></td></tr>
+                <tr class="pattern"><td></td><td></td><td></td><td></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

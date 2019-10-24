@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<style>
+
+    p {
+        font-size: 20px;
+        font-weight: bolder;
+    }
+
+    body {
+        margin-left:5%;
+        font-size: 2em; 
+    }   
+    div {
+        width:20%;
+        border: 2px dashed red;
+        text-align: center;
+        float:left;
+        margin:2%;
+    }
+
+    div > div {
+        width:100%;
+        height:10%;
+    }
+</style>
+<script>
+
+    function elementarySchoolChange() {
+	    var p = document.getElementById("elementarySchool");
+	    p.innerHTML= "<div><img src='다사.jpg'><br/><a href='http://www.dasa.es.kr/index.do' target='_blank' onclick='return query()' >홈페이지 바로가기</a>";
+    	p.onclick = function() {
+            var e = this.parentElement; // 부모 HTML 태그 요소
+            e.removeChild(this); // 자신을 부모로부터 제거
+	    };
+    }
+    function middleSchoolChange() {
+	    var p = document.getElementById("middleSchool");
+	    p.innerHTML= "<div><img src='성곡.jpg'><br/><a href='http://www.sgok.ms.kr/index.do' target='_blank' \
+         onclick='return query()'>홈페이지 바로가기</a>";
+        p.onclick = function() {
+            var e = this.parentElement; // 부모 HTML 태그 요소
+            e.removeChild(this); // 자신을 부모로부터 제거
+	    };
+    }
+    function highSchoolChange() {
+        var p = document.getElementById("highSchool");
+        p.innerHTML= "<div><img src='성산.jpg'><br/><a href='http://www.seongsan.hs.kr/index.do' target='_blank' onclick='return query()'>홈페이지 바로가기</a>";
+        p.onclick = function() {
+            var e = this.parentElement; // 부모 HTML 태그 요소
+            e.removeChild(this); // 자신을 부모로부터 제거
+	    };
+    }
+    function juniorCollegChange() {
+        var p = document.getElementById("juniorColleg");
+        p.innerHTML= "<div><img src='영진.jpg'><br/><a href='http://www.yjc.ac.kr/' target='_blank' onclick='return query()'>홈페이지 바로가기</a>";
+        p.onclick = function() {
+            var e = this.parentElement; // 부모 HTML 태그 요소
+            e.removeChild(this); // 자신을 부모로부터 제거
+	    };
+    }
+    
+    function query() {
+        var ret = confirm("이동하시겠습니까?");
+        return ret;
+    }
+
+</script>
+</head>
+
+<body>
+<h3>자기소개</h3>
+<hr>
+
+<p>이름: 변수정</p>
+<p>주소: 대구광역시 서구</p>
+<p>아이디: susususu07</p>
+<p>별명: 너꾸리</p>
+<p>꿈과 비전: 내가 만든 프로그램을 필요로 하는 사람들이 내가 살아가는 동안 꾸준히 늘어났으면 좋겠다</p>
+<p>어떤 프로그래머가 될 것이다: 사람들이 필요로 하는 프로그램을 만드는 사람이 될 것이다</p>
+
+<hr>
+
+<p><span style="color:red;">(클릭)</span>을 눌려주세요!</p>
+<div id="elementarySchool" style="color:blue"
+	onclick="elementarySchoolChange()">초등학교
+	<span style="color:red">(클릭)</span>
+</div>
+<div id="middleSchool" style="color:blue"
+	onclick="middleSchoolChange()">중학교
+	<span style="color:red">(클릭)</span>
+</div>
+<div id="highSchool" style="color:blue"
+	onclick="highSchoolChange()">고등학교
+	<span style="color:red">(클릭)</span>
+</div>
+<div id="juniorColleg" style="color:blue"
+	onclick="juniorCollegChange()">대학교
+	<span style="color:red">(클릭)</span>
+</div>
+
+
+</body>
+</html>

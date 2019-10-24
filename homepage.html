@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>너꾸리 블로그</title>
+<meta charset="utf-8">
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .context,.login {
+        border:none;
+    }
+
+    .login {
+        margin-left:40%;
+    }
+
+
+    .header_1 {
+        float:left;
+    }
+
+
+    .side {
+        height: 100%;
+        width: 200px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color:deepskyblue;
+        overflow-x: hidden;
+    }
+
+
+
+    .side a {
+        margin-top:10px;
+        color: white;
+        font-weight: bolder;
+        padding: 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+
+    .side a:hover {
+        color:black;
+        background-color:ghostwhite;
+        font-weight: bolder;
+    }
+
+
+    header,iframe,footer {
+        margin-top:20px;
+        margin-left: 200px;
+        padding-left: 20px;
+    }
+
+
+</style>
+</head>
+
+
+<body>
+
+    <nav class="side">
+       
+        <a href="self.html" target="right" onmouseover="this.innerText='Click!!!'" onmouseout="this.innerText='Introduction'">Introduction</a>
+        <a href="일본학기제.html" target="right" onmouseover="this.innerText='Click!!!'" onmouseout="this.innerText='Album'">Album</a>
+        <a href="현지학기제영상.html" target="right" onmouseover="this.innerText='Click!!!'" onmouseout="this.innerText='Video'">Video</a>
+        <a href="test.html" target="right" onmouseover="this.innerText='Click!!!'" onmouseout="this.innerText='Test'">Test</a>
+    
+    </nav>
+
+    <header>
+        <div class="header_1">
+            <h1>너꾸리 블로그</h1>
+            <audio src="배경음악.mp3" controls autoplay loop>브라우저가 audio태그를 지원하지 않습니다</audio>
+        </div>
+        <iframe class="login" src="login.html" width="650" height="140"></iframe>
+        <hr>
+
+    </header>
+
+
+    <iframe class="context" src="self.html" 
+    name="right" width="1700" height="800">
+    </iframe>
+ 
+
+    <footer>
+        <p>영진전문대 컴퓨터정보계열 WD2J </p>
+        <P>1701140 변수정</p>
+    </footer>
+</body>
+</html>
